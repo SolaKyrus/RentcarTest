@@ -36,7 +36,7 @@
                         body: JSON.stringify(data)
                     }).then(response => {
                         alert('메일이 성공적으로 전송되었습니다!');
-                        document.getElementById('contactForm').reset();
+                        // document.getElementById('contactForm').reset();
                     }).catch(error => {
                         console.error('Error:', error);
                         alert('오류가 발생했습니다.');
