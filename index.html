@@ -22,21 +22,29 @@
 
         <script>
             document.getElementById("contact-form").addEventListener("submit", async (e) => {
-                e.preventDefault();
-                console.log("스크립트 로드됨");
-                const data = {
-                    name: e.target.name.value,
-                    // email: e.target.email.value,
-                    message: e.target.message.value
-                };
+                    e.preventDefault();
+                    console.log("스크립트 로드됨");
+                    const data = {
+                        name: e.target.name.value,
+                        // email: e.target.email.value,
+                        message: e.target.message.value
+                    };
 
-                await fetch("https://script.google.com/macros/s/AKfycbxrYJzFHj-rJf_NPwuq0srkPSSmsxMSOjp79YGwcSZgpvU6iE8tKP2e4aKAI0MQjBI/exec", {
-                    method: "POST",
-                    mode: 'no-cors',
-                    body: JSON.stringify(data)
-                });
+                    await fetch("https://script.google.com/macros/s/AKfycbxrYJzFHj-rJf_NPwuq0srkPSSmsxMSOjp79YGwcSZgpvU6iE8tKP2e4aKAI0MQjBI/exec", {
+                        method: "POST",
+                        mode: 'no-cors',
+                        body: JSON.stringify(data)
+                    }).then(response => {
+                        alert('메일이 성공적으로 전송되었습니다!');
+                        document.getElementById('contactForm').reset();
+                    }).catch(error => {
+                        console.error('Error:', error);
+                        alert('오류가 발생했습니다.');
+                    });
+                
+                ;
 
-                alert("전송 완료");
+                // alert("전송 완료");
             });
         </script>
     </div>
