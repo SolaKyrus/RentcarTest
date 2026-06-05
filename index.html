@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src=""></script>
+    <title>렌트카</title>
+</head>
+
+<body>
+    <div>
+        <div>테스트용 보내기</div>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="이름">
+            <br>
+            <!-- <input type="email" name="email" placeholder="이메일"> -->
+            <textarea name="message"></textarea>
+            <br>
+            <button type="submit">보내기</button>
+        </form>
+
+        <script>
+            document.getElementById("contact-form").addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const data = {
+                    name: e.target.name.value,
+                    // email: e.target.email.value,
+                    message: e.target.message.value
+                };
+
+                await fetch("https://script.google.com/macros/s/AKfycbxrYJzFHj-rJf_NPwuq0srkPSSmsxMSOjp79YGwcSZgpvU6iE8tKP2e4aKAI0MQjBI/exec", {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                });
+
+                alert("전송 완료");
+            });
+        </script>
+    </div>
+</body>
+
+</html>
